@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Results</title>
+    <style>
+      body {
+        background-color: white;
+      }
+      h1 {
+        text-align: center;
+        color: black;
+        background-color: red;
+        padding: 20px;
+      }
+      ul {
+        background-color: red;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      li {
+        color: white;
+        margin-bottom: 10px;
+      }
+      li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 5px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      li a:hover {
+        background-color: white;
+        color: red;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin: 20px auto;
+      }
+      th {
+        background-color: red;
+        color: black;
+        padding: 10px;
+      }
+      td {
+        background-color: white;
+        color: black;
+        padding: 10px;
+        border: 1px solid black;
+      }
+      tr:nth-child(odd) td {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="color: black;">Results</h1>
+    <ul>
+      <li><a href="{{ url_for('self_evaluation') }}" style="color: white; background-color: black;">Go to Self-Evaluation</a></li>
+      <li><a href="{{ url_for('peer_evaluation') }}" style="color: white; background-color: black;">Go to Peer-Evaluation</a></li>
+    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Student</th>
+          <th>Self-Evaluation Score</th>
+          <th>Peer-Evaluation Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Student 1</td>
+          <td>2.2</td>
+          <td>2.5</td>
+        </tr>
+        <tr>
+          <td>Student 2</td>
+          <td>2.5</td>
+          <td>1.9</td>
+        </tr>
+        <tr>
+          <td>Student 3</td>
+          <td>1.5</td>
+          <td>1.0</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
