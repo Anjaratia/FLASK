@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mySPE Professional- Results</title>
+	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <link href="https://fonts.cdnfonts.com/css/cambay" rel="stylesheet">
+  <head>
+	<title>Export HTML table to CSV</title>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript">
+		function downloadCSV(csv, filename) {
+			var csvFile;
+			var downloadLink;
+			csvFile = new Blob([csv], {type: "text/csv"});
+			downloadLink = document.createElement("a");
+			downloadLink.download = filename;
+			downloadLink.href = window.URL.createObjectURL(csvFile);
+			downloadLink.style.display = "none";
+			document.body.appendChild(downloadLink);
+			downloadLink.click();
+		}
+
+		function exportTableToCSV(filename) {
+			var csv = [];
+			var rows = document.querySelectorAll("table tr");
+			
+			for (var i = 0; i < rows.length; i++) {
+				var row = [], cols = rows[i].querySelectorAll("td, th");
+				
+				for (var j = 0; j < cols.length; j++) {
+					row.push(cols[j].innerText);
+				}
+				
+				csv.push(row.join(","));
+			}
+
+			downloadCSV(csv.join("\n"), filename);
+		}
+	</script>
+</head>
+  <!-- CSS -->
+  <style>
+     @import url('https://fonts.cdnfonts.com/css/cambay');
+
+    header div{
+      font-family: 'Cambay', sans-serif;
+      font-style: normal;
+      font-weight: 200;
+      font-size: 30px;
+      line-height: 55px;  
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.02em;
+      position: absolute;
+      width: 100%;
+      height: 46px;
+      color: #ffffff;
+      background: #000000;
+      padding: 10px 0 10px 10px;
+    }
+
+    h1{
+      font-family: 'Cambay', sans-serif;
+      font-style: normal;
+      font-weight: 200;
+      font-size: 16px;
+      line-height: 55px;  
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.02em;
+      color: #E12744;
+    }
+
+    h2{
+      font-family: 'Cambay', sans-serif;
+      font-style: normal;
+      font-weight: 200;
+      font-size: 20px;
+      line-height: 55px;  
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.02em;
+    
+      color: #ffffff;
+    }
+
+    h3{
+      font-family: 'Cambay', sans-serif;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 50px;
+      margin: 10px;
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.02em;
+      font-weight: 300;
+      color: #000000;
+    }
+
+    h4{
+      font-family: 'Cambay', sans-serif;
+      font-style: normal;
+      font-size: 10px;
+      color: #000000;
+      align-items: right;
+    }
+
+    Body{  
+      font-family: 'Cambay', sans-serif;  
+      background-color: rgb(255, 255, 255);  
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    footer{
+      text-align: right;
+      background-color: #D9D9D9;
+      margin-top: auto;
+      width: 100%;
+    }
+
+    footer h4{
+      margin-right: 20px;
+    }
+
+    h4 span{
+      margin-right: 30px;
+    }
+
+
+    .topNav #menu {
+      display: none;
+    }
+
+    #menu a{
+      display: block;
+      background-color: #D8D8D8;
+    }
+
+    .topNav a.icon {
+      color: white;
+      background: #E12744;
+      display: block;
+      width: 60px;
+      padding-top: 4px;
+      text-align: center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin-left: 200px;
+    }
+
+    .mainMenu{
+      margin-left: 260px;
+      /* display: none; */
+    }
+
+    .mainMenu a{
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 20px;
+      margin: 0 20px;
+    }
+
+    .user{
+      margin-left: 1300px;
+    }
+
+    .dashboard{
+      margin-top: 6rem;
+    }
+
+    .dashboard h1{
+      font-family: 'Cambay', sans-serif;
+      font-size: 30px;
+      color: #000000;
+      letter-spacing: 1px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding-left: 30px;
+    }
+
+    table{
+      border-collapse: collapse;
+      margin-left: 30px;
+    }
+
+    td, th{
+      padding: 20px 50px 20px 0px;
+    }
+
+    td{
+      border-bottom: 1px solid #000000;
+    }
+
+    .fa-trash{
+      font-size: 20px;
+      color: #D8D8D8;
+    }
+
+    .fa-plus-circle{
+      font-size: 25px;
+      margin: 30px;
+      color: #D8D8D8;
+    }
+
+    .export-button {
+        background-color: red;
+        font-family: 'Cambay', sans-serif;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+	<header>
+		<div class="topNav">
+      <h1>
+        my 
+      </h1>
+      <h2 class="spe_title">
+        SPE Professional
+      </h2>
+
+      <!-- Hamburger Menu -->
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+
+      <!-- Main Menu-->
+      <div class="mainMenu">
+        <a href="#dashboard">
+          <i class="fa fa-home"></i> <span>Dashboard</span>
+        </a>
+        <a href="#units">
+          <i class="fa fa-book"></i> <span>Units</span>
+        </a>
+      </div>
+
+      <!-- User -->
+      <div class="user">
+        <h2>{{ unitCoord.given_names }} {{ unitCoord.surname }}</h2>
+        <h2> &nbsp&nbsp&nbsp </h2>
+        <a>
+          <i class="fa fa-user-circle"></i>
+        </a>
+      </div>
+    </div>
+	</header>
+
+  <!-- Dashboard -->
+  <section class="dashboard">
+    <div>
+      <h1>ICT201 Information Technology Project Management (TJD23) SPE RESULTS</h1>
+      <hr>
+    </div>
+
+    <!-- Results -->
+    <div class="results">
+      <table>
+        <tr>
+            <th>Student ID</th>
+            <th>Surname</th>
+            <th>Title</th>
+            <th>Given Name</th>
+            <th>Teaching Period</th>
+            <th>Team ID</th>
+            <th>SPE1</th>
+            <th>SPE2</th>
+            <th>Total SPE</th>
+          </tr>
+          <tr>
+            <td>{{ student7.id }}</td>
+            <td>{{ student7.surname }}</td>
+            <td>{{ student7.title }}</td>
+            <td>{{ student7.given_names }}</td>
+            <td>{{ student7.teaching_period }}</td>
+            <td>{{ student7.team_id }}</td>
+            <td>{{ student7.spe1_total }}</td>
+            <td>{{ student7.spe2_total }}</td>
+            <td>{{ student7.accumulated_spe }}</td>
+          </tr>
+          <tr>
+            <td>{{ student8.id }}</td>
+            <td>{{ student8.surname }}</td>
+            <td>{{ student8.title }}</td>
+            <td>{{ student8.given_names }}</td>
+            <td>{{ student8.teaching_period }}</td>
+            <td>{{ student8.team_id }}</td>
+            <td>{{ student8.spe1_total }}</td>
+            <td>{{ student8.spe2_total }}</td>
+            <td>{{ student8.accumulated_spe }}</td>
+          </tr>
+          <tr>
+            <td>{{ student9.id }}</td>
+            <td>{{ student9.surname }}</td>
+            <td>{{ student9.title }}</td>
+            <td>{{ student9.given_names }}</td>
+            <td>{{ student9.teaching_period }}</td>
+            <td>{{ student9.team_id }}</td>
+            <td>{{ student9.spe1_total }}</td>
+            <td>{{ student9.spe2_total }}</td>
+            <td>{{ student9.accumulated_spe }}</td>
+          </tr>
+          <tr>
+            <td>{{ student10.id }}</td>
+            <td>{{ student10.surname }}</td>
+            <td>{{ student10.title }}</td>
+            <td>{{ student10.given_names }}</td>
+            <td>{{ student10.teaching_period }}</td>
+            <td>{{ student10.team_id }}</td>
+            <td>{{ student10.spe1_total }}</td>
+            <td>{{ student10.spe2_total }}</td>
+            <td>{{ student10.accumulated_spe }}</td>
+          </tr>
+          <tr>
+            <td>{{ student11.id }}</td>
+            <td>{{ student11.surname }}</td>
+            <td>{{ student11.title }}</td>
+            <td>{{ student11.given_names }}</td>
+            <td>{{ student11.teaching_period }}</td>
+            <td>{{ student11.team_id }}</td>
+            <td>{{ student11.spe1_total }}</td>
+            <td>{{ student11.spe2_total }}</td>
+            <td>{{ student11.accumulated_spe }}</td>
+          </tr>
+          <tr>
+            <td>{{ student12.id }}</td>
+            <td>{{ student12.surname }}</td>
+            <td>{{ student12.title }}</td>
+            <td>{{ student12.given_names }}</td>
+            <td>{{ student12.teaching_period }}</td>
+            <td>{{ student12.team_id }}</td>
+            <td>{{ student12.spe1_total }}</td>
+            <td>{{ student12.spe2_total }}</td>
+            <td>{{ student12.accumulated_spe }}</td>
+          </tr>
+      </table>
+      <button class="export-button">Export Results</button>
+      <!-- Insert -->
+    </div>
+  </section>
+
+  <!-- Javascript -->
+  <script>
+    function myFunction() {
+      var x = document.getElementsByID("menu");
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }
+
+    var exportBtn = document.querySelector(".export-button");
+      exportBtn.addEventListener("click", function() {
+        var csv = [];
+        var rows = document.querySelectorAll("table tr");
+
+        for (var i = 0; i < rows.length; i++) {
+          var row = [], cols = rows[i].querySelectorAll("td, th");
+
+          for (var j = 0; j < cols.length; j++) 
+            row.push(cols[j].innerText);
+
+          csv.push(row.join(","));
+        }
+
+        // Download CSV file
+        var filename = "ICT201_spe_results.csv";
+        var csvFile = new Blob([csv.join("\n")], {type: "text/csv"});
+
+        if (window.navigator.msSaveOrOpenBlob)
+          window.navigator.msSaveBlob(csvFile, filename);
+        else {
+          var downloadLink = document.createElement("a");
+          downloadLink.href = window.URL.createObjectURL(csvFile);
+          downloadLink.download = filename;
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
+          document.body.removeChild(downloadLink);
+        }
+      });
+    </script>
+
+      <!-- Footer -->
+  <footer>
+    <h4>
+      <span>Privacy</span>
+      &#169; 2023 Murdoch University  
+    </h4>
+  </footer>
+
+</body>
+</html>

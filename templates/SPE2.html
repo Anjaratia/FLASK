@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/cambay" rel="stylesheet">
+	<title>SPE2</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/cambay');
+        h1{
+            font-family: 'Cambay', sans-serif;
+            font-style: normal;
+            font-weight: 200;
+            font-size: 33px;
+            line-height: 55px;  
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.02em;
+            color: #000000;
+			text-align: center;
+			margin-left: 35%;
+            }
+        /* Center the survey form */
+        h3{
+            font-family: 'Cambay', sans-serif;
+            font-style: normal;
+            font-weight: 200;
+            font-size: 25px;
+            line-height: 55px;  
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.02em;
+            color: #000000;
+			margin-bottom: 2px;
+            }
+
+		h4{
+            display: block;
+            margin-bottom: 7px;
+			margin-right: 80px;
+			margin-top: 1px;
+            font-family: 'Cambay', sans-serif;
+            font-style: normal;
+            font-weight: 200;
+            font-size: 16px;
+            letter-spacing: 0.02em;
+            color: #000000;
+        }	
+        .survey-form-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Style the form labels */
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-family: 'Cambay', sans-serif;
+            font-style: normal;
+            font-weight: 200;
+            font-size: 16px;
+            letter-spacing: 0.02em;
+            color: #000000;
+        }
+
+        /* Style the form inputs */
+        input[type="text"], select, textarea {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 7px;
+            font-size: 16px;
+        }
+
+        /* Style the form buttons */
+        button[type="submit"] {
+            background-color: red;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: red;
+        }
+
+        /* Add a red border to invalid form inputs */
+        input:invalid, select:invalid, textarea:invalid {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+	<h1>Self & Peer Evaluation 2</h1>
+    <div class="survey-form-container">
+	<form method="POST">
+		<div>
+			<h4>Below you will see a series of questions and scales designed to allow you to evaluate your own performance up until this point in the trimester. This form, together with those of others in your group, will determine the second Self and Peer Evaluation (SPE2) mark that you get. Please note: Everything that you put into this form will be kept strictly confidential by the unit coordinator.</h4>
+			<h4>The scales are from 1 to 5. Assess these as:</h4>
+				<h4>1 = Very poor, or even obstructive, contribution to the project process</h4>
+				<h4>2 = Poor contribution to the project process</h4>
+				<h4>3 = Acceptable contribution to the project process</h4>
+				<h4>4 = Good contribution to the project process</h4>
+				<h4>5 = Excellent contribution to the project process</h4>
+				</h4>
+		</div>
+        <div>
+            <h3>Self-Evaluation: {{ current_student.given_names }} {{ current_student.surname }} ({{current_student.id}})</h3>
+        </div>
+		<label for="q1">1. Rate the work and effort you contributed towards the project documents:</label>
+		<select name="q1" required>
+			<option value="">Select rating</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<br>
+		<label for="q2">2. Rate your willingness to work and to take responsibility:</label>
+		<select name="q2" required>
+			<option value="">Select rating</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<br>
+		<label for="q3">3. Rate your level of communication and participation within the group and during meetings:</label>
+		<select name="q3" required>
+			<option value="">Select rating</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<br>
+		<label for="q4">4. Rate your contribution towards the management of the project, e.g. work delivered on time:</label>
+		<select name="q4" required>
+			<option value="">Select rating</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+        </select>
+		<br>
+		<label for="q5">5. Rate your problem-solving and creativity on behalf of the group work:</label>
+		<select name="q5" required>
+			<option value="">Select rating</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<br>
+		<label for="q6">6. Provide a brief description of how you believe you contributed to the project process for the duration of the trimester:</label>
+		<textarea name="q6" rows="3" cols="50" maxlength="200"></textarea>
+		<br>
+		<label for="q7">7. What skills and knowledge do you now know you need to develop for your future work in the IT industry and/or what issues of your own working style do you need to address?</label>
+		<textarea name="q7" rows="3" cols="50" maxlength="200"></textarea>
+		<br>
+        <div>
+            <h3>Respond to the following for your team member: {{ member1.given_names }} {{ member1.surname }} ({{member1.id}})</h3>
+        </div>
+		<label for="q8">8. Rate the work and effort this team member contributed towards the project documents:</label>
+		<select name="q8" required>
+			<option value="">Select rating</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<br>
+		<label for="q9">9. Rate this team member's willingness to work and to take responsibility:</label>
+		<select name="q9" required>
+			<option value="">Select rating</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<br>
+		<label for="q10">10. Rate this team member's level of communication and participation within the group and during meetings:</label>
+		<select name="q10" required>
+			<option value="">Select rating</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<br>
+		<label for="q11">11. Rate this team member's contribution towards the management of the project, e.g. work delivered on time:</label>
+		<select name="q11" required>
+			<option value="">Select rating</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+        </select>
+		<br>
+		<label for="q12">12. Rate this team member's problem-solving and creativity on behalf of the group work:</label>
+		<select name="q12" required>
+			<option value="">Select rating</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<br>
+		<label for="q13">13. Provide a brief description of how you believe this team member contributed to the project process for the duration of the trimester:</label>
+		<textarea name="q13" rows="3" cols="50" maxlength="200"></textarea>
+		<br>
+        <div>
+            <h3>Respond to the following for your team member: {{ member2.given_names }} {{ member2.surname }} ({{member2.id}}) </h3>
+        </div>
+		<label for="q14">14. Rate the work and effort this team member contributed towards the project documents:</label>
+		<select name="q14" required>
+			<option value="">Select rating</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<br>
+		<label for="q15">15. Rate this team member's willingness to work and to take responsibility:</label>
+		<select name="q15" required>
+			<option value="">Select rating</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<br>
+		<label for="q16">16. Rate this team member's level of communication and participation within the group and during meetings:</label>
+		<select name="q16" required>
+			<option value="">Select rating</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<br>
+		<label for="q17">17. Rate this team member's contribution towards the management of the project, e.g. work delivered on time:</label>
+		<select name="q17" required>
+			<option value="">Select rating</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<br>
+		<label for="q18">18. Rate this team member's problem-solving and creativity on behalf of the group work:</label>
+		<select name="q18" required>
+			<option value="">Select rating</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+		</select>
+		<br>
+		<label for="q19">19. Provide a brief description of how you believe this team member contributed to the project process for the duration of the trimester:</label>
+		<textarea name="q19" rows="3" cols="50" maxlength="200"></textarea>
+		<br>
+		<button type="submit">Save</button>
+	</form>
+    </div>
+</body>
+</html>

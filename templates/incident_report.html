@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/cambay" rel="stylesheet">
+	<title>mySPE Professional- Incident Report</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/cambay');
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Cambay', sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333333;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        font-weight: 600;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      /* Page styles */
+      .page {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px;
+      }
+
+      .logo {
+        margin-bottom: 20px;
+      }
+
+      .form-heading {
+        margin-bottom: 40px;
+      }
+
+      .form-row {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      textarea {
+        resize: vertical;
+        height: 100px;
+      }
+
+      button[type="submit"] {
+        padding: 10px 20px;
+        background-color: red;
+        color: #ffffff;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      button[type="submit"]:hover {
+        background-color: red;
+      }
+
+      .alert-message {
+        position: fixed;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+    </style>
+    <script>
+      function submitReport() {
+        alert("Your report has been sent to your Unit Coordinator.");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="page">
+      <h1 class="form-heading">Student Incident Report</h1>
+      <form>
+        <div class="form-row">
+          <label for="student-name">Student Name</label>
+          <input type="text" id="student-name" name="student-name" required>
+        </div>
+        <div class="form-row">
+          <label for="date-of-incident">Date of Incident</label>
+          <input type="text" id="date-of-incident" name="date-of-incident" required>
+        </div>
+        <div class="form-row">
+          <label for="description">Description of Incident</label>
+          <textarea id="description" name="description" required></textarea>
+        </div>
+        <div class="form-row">
+          <label for="unit-code">Unit Code</label>
+          <input type="text" id="unit-code" name="unit-code" required>
+        </div>
+        <div class="form-row">
+            <label for="team-id">Team ID</label>
+            <input type="text" id="team-id" name="team-id" required>
+          </div>
+          <div class="form-row">
+            <button type="submit" onclick="showAlert()">Submit Report</button>
+          </div>
+        </form>
+      </div>
+      <script>
+        function showAlert() {
+          // Show alert box
+          alert("Your report has been sent to your Unit Coordinator");
+          
+          // Add alert-message class to alert box
+          const alertBox = document.querySelector(".alert");
+          alertBox.classList.add("alert-message");
+        }
+      </script>
+    </body>
+  </html>

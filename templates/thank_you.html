@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/cambay" rel="stylesheet">
+	<title>mySPE Professional- Completed Survey!</title>
+    <style>
+		@import url('https://fonts.cdnfonts.com/css/cambay');
+		h1{
+            font-family: 'Cambay', sans-serif;
+            font-style: normal;
+            font-weight: 200;
+            font-size: 33px;
+            line-height: 55px;  
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.02em;
+            color: #000000;
+        }
+
+		li {
+            display: block;
+            margin-bottom: 7px;
+            font-family: 'Cambay', sans-serif;
+            font-style: normal;
+            font-weight: 200;
+            font-size: 16px;
+            letter-spacing: 0.02em;
+            color: #000000;
+        }
+
+		p {
+            display: block;
+            margin-bottom: 7px;
+            font-family: 'Cambay', sans-serif;
+            font-style: normal;
+            font-weight: 200;
+            font-size: 20px;
+            letter-spacing: 0.02em;
+            color: #000000;
+        }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Thank you for completing the survey!</h1>
+		<p>Here are your responses:</p>
+		<ul>
+			<li>Question 1: {{ responses['q1'] }}</li>
+			<li>Question 2: {{ responses['q2'] }}</li>
+			<li>Question 3: {{ responses['q3'] }}</li>
+			<li>Question 4: {{ responses['q4'] }}</li>
+			<li>Question 5: {{ responses['q5'] }}</li>
+			<li>Question 6: {{ responses['q6'] }}</li>
+			<li>Question 7: {{ responses['q7'] }}</li>
+			<li>Question 8: {{ responses['q8'] }}</li>
+			<li>Question 9: {{ responses['q9'] }}</li>
+			<li>Question 10: {{ responses['q10'] }}</li>
+			<li>Question 11: {{ responses['q11'] }}</li>
+			<li>Question 12: {{ responses['q12'] }}</li>
+			<li>Question 13: {{ responses['q13'] }}</li>
+			<li>Question 14: {{ responses['q14'] }}</li>
+			<li>Question 15: {{ responses['q15'] }}</li>
+			<li>Question 16: {{ responses['q16'] }}</li>
+			<li>Question 17: {{ responses['q17'] }}</li>
+			<li>Question 18: {{ responses['q18'] }}</li>
+			<li>Question 19: {{ responses['q19'] }}</li>
+		</ul>
+	</div>
+</body>
+</html>
